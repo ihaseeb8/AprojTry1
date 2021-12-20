@@ -70,15 +70,8 @@ public class DriverMyRidesViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        ObservableList<Ride> myrides = FXCollections.observableArrayList();
 
-        for (Ride tabPane : DriverProfile.getDriverProfile().getRides()){
-            System.out.println(tabPane.getStatus());
-            if(tabPane.getStatus().equals("notBooked") || tabPane.getStatus() == "Cancelled")
-            {
-                myrides.add(tabPane);
-            }
-        }
+        ObservableList<Ride> rides = DBConnection.getDBConnection().getFinishedRides(DriverProfile.getDriverProfile().getDriverCnic());
 
         PickUpCol.setCellValueFactory(new PropertyValueFactory<>("pickUp"));
         DropOffCol.setCellValueFactory(new PropertyValueFactory<>("dropOff"));
@@ -86,7 +79,9 @@ public class DriverMyRidesViewController implements Initializable {
         VehicleIdCol.setCellValueFactory(new PropertyValueFactory<>("vehicleId"));
         FareCol.setCellValueFactory(new PropertyValueFactory<>("fare"));
         StatusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
-        DriverMyRidesInfoTable.setItems(myrides);
+
+        DriverMyRidesInfoTable.setItems(rides);
+
 
     }
 }

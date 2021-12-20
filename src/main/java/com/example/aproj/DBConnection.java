@@ -1,6 +1,8 @@
 package com.example.aproj;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
-import java.util.Objects;
 
 import static java.lang.Integer.parseInt;
 
@@ -279,6 +281,388 @@ class DBConnection {
                 }
 
             }
+            con.close();
+            return true;
+        }
+        catch(ClassNotFoundException e){
+
+            System.out.println("Driver Not Loaded");
+            return false;
+
+        } catch (SQLException e) {
+
+            System.out.println("Connection is not Established!" + e.getMessage());
+            return false;
+        }
+    }
+
+    public ObservableList<Ride> getAvailableRides(){
+        try
+        {
+            //step1 load the driver class
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded Successfully!");
+            //step2 create  the connection object
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            System.out.println("Connection Established!");
+            String sql = "SELECT * FROM ap.ride WHERE status = ? ";
+
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, "notBooked");
+            ResultSet rs = statement.executeQuery();
+
+            ObservableList<Ride> returnlist = FXCollections.observableArrayList();
+
+            while(rs.next())
+            {
+                Ride r = new Ride();
+                r.setRideId(Integer.valueOf(rs.getString("rideId")));
+                r.setDriverID(Integer.valueOf(rs.getString("driverId")));
+                r.setPassengerId(Integer.valueOf(rs.getString("passengerId")));
+                r.setDropOff(rs.getString("dropOff"));
+                r.setPickUp(rs.getString("pickUp"));
+                r.setStatus(rs.getString("status"));
+                r.setFare(Integer.valueOf(rs.getString("fare")));
+                r.setVehicleId(Integer.valueOf(rs.getString("vehicleId")));
+
+                returnlist.add(r);
+            }
+            con.close();
+            return returnlist;
+        }
+        catch(ClassNotFoundException e){
+
+            System.out.println("Driver Not Loaded");
+            return null;
+
+        } catch (SQLException e) {
+
+            System.out.println("Connection is not Established!" + e.getMessage());
+            return null;
+        }
+    }
+
+    public ObservableList<Ride> getBookedRides(int driverCnic){
+        try
+        {
+            //step1 load the driver class
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded Successfully!");
+            //step2 create  the connection object
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            System.out.println("Connection Established!");
+
+            String sql = "SELECT * FROM ap.ride WHERE status = 'Booked' AND driverId = ? ";
+
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, String.valueOf(driverCnic));
+
+            ResultSet rs = statement.executeQuery();
+
+            ObservableList<Ride> returnlist = FXCollections.observableArrayList();
+
+            while(rs.next())
+            {
+                Ride r = new Ride();
+                r.setRideId(Integer.valueOf(rs.getString("rideId")));
+                r.setDriverID(Integer.valueOf(rs.getString("driverId")));
+                r.setPassengerId(Integer.valueOf(rs.getString("passengerId")));
+                r.setDropOff(rs.getString("dropOff"));
+                r.setPickUp(rs.getString("pickUp"));
+                r.setStatus(rs.getString("status"));
+                r.setFare(Integer.valueOf(rs.getString("fare")));
+                r.setVehicleId(Integer.valueOf(rs.getString("vehicleId")));
+                returnlist.add(r);
+
+            }
+            con.close();
+            return returnlist;
+        }
+        catch(ClassNotFoundException e){
+
+            System.out.println("Driver Not Loaded");
+            return null;
+
+        } catch (SQLException e) {
+
+            System.out.println("Connection is not Established!" + e.getMessage());
+            return null;
+        }
+    }
+
+    public ObservableList<Ride> getAcceptedRides(int driverCnic){
+        try
+        {
+            //step1 load the driver class
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded Successfully!");
+            //step2 create  the connection object
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            System.out.println("Connection Established!");
+
+            String sql = "SELECT * FROM ap.ride WHERE status = 'Accepted' AND driverId = ? ";
+
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, String.valueOf(driverCnic));
+
+            ResultSet rs = statement.executeQuery();
+
+            ObservableList<Ride> returnlist = FXCollections.observableArrayList();
+
+            while(rs.next())
+            {
+                Ride r = new Ride();
+                r.setRideId(Integer.valueOf(rs.getString("rideId")));
+                r.setDriverID(Integer.valueOf(rs.getString("driverId")));
+                r.setPassengerId(Integer.valueOf(rs.getString("passengerId")));
+                r.setDropOff(rs.getString("dropOff"));
+                r.setPickUp(rs.getString("pickUp"));
+                r.setStatus(rs.getString("status"));
+                r.setFare(Integer.valueOf(rs.getString("fare")));
+                r.setVehicleId(Integer.valueOf(rs.getString("vehicleId")));
+                returnlist.add(r);
+
+            }
+            con.close();
+            return returnlist;
+        }
+        catch(ClassNotFoundException e){
+
+            System.out.println("Driver Not Loaded");
+            return null;
+
+        } catch (SQLException e) {
+
+            System.out.println("Connection is not Established!" + e.getMessage());
+            return null;
+        }
+    }
+
+    public ObservableList<Ride> getFinishedRides(int driverCnic){
+
+        try
+        {
+            //step1 load the driver class
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded Successfully!");
+            //step2 create  the connection object
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            System.out.println("Connection Established!");
+
+            String sql = "SELECT * FROM ap.ride WHERE driverId = ? AND (status = 'Finished' OR status = 'Cancelled') ";
+
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, String.valueOf(driverCnic));
+
+            ResultSet rs = statement.executeQuery();
+
+            ObservableList<Ride> returnlist = FXCollections.observableArrayList();
+
+            while(rs.next())
+            {
+                Ride r = new Ride();
+                r.setRideId(Integer.valueOf(rs.getString("rideId")));
+                r.setDriverID(Integer.valueOf(rs.getString("driverId")));
+                r.setPassengerId(Integer.valueOf(rs.getString("passengerId")));
+                r.setDropOff(rs.getString("dropOff"));
+                r.setPickUp(rs.getString("pickUp"));
+                r.setStatus(rs.getString("status"));
+                r.setFare(Integer.valueOf(rs.getString("fare")));
+                r.setVehicleId(Integer.valueOf(rs.getString("vehicleId")));
+                returnlist.add(r);
+
+            }
+            con.close();
+            return returnlist;
+        }
+        catch(ClassNotFoundException e){
+
+            System.out.println("Driver Not Loaded");
+            return null;
+
+        } catch (SQLException e) {
+
+            System.out.println("Connection is not Established!" + e.getMessage());
+            return null;
+        }
+    }
+
+    public boolean acceptRide(int rideId){
+        System.out.println(String.valueOf(rideId));
+        try
+        {
+            //step1 load the driver class
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded Successfully!");
+            //step2 create  the connection object
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            System.out.println("Connection Established!");
+            String sql = "UPDATE ap.ride SET status = 'Accepted' WHERE rideId = ? ";
+
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, String.valueOf(rideId));
+
+            statement.executeUpdate();
+
+            con.close();
+            return true;
+        }
+        catch(ClassNotFoundException e){
+
+            System.out.println("Driver Not Loaded");
+            return false;
+
+        } catch (SQLException e) {
+
+            System.out.println("Connection is not Established!" + e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean finishRide(int rideId){
+
+        System.out.println(String.valueOf(rideId));
+        try
+        {
+            //step1 load the driver class
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded Successfully!");
+            //step2 create  the connection object
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            System.out.println("Connection Established!");
+            String sql = "UPDATE ap.ride SET status = 'Finished' WHERE rideId = ? ";
+
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, String.valueOf(rideId));
+
+            statement.executeUpdate();
+
+            con.close();
+            return true;
+        }
+        catch(ClassNotFoundException e){
+
+            System.out.println("Driver Not Loaded");
+            return false;
+
+        } catch (SQLException e) {
+
+            System.out.println("Connection is not Established!" + e.getMessage());
+            return false;
+        }
+
+    }
+
+    public boolean cancelRide(int rideId){
+        System.out.println(String.valueOf(rideId));
+        try
+        {
+            //step1 load the driver class
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded Successfully!");
+            //step2 create  the connection object
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            System.out.println("Connection Established!");
+            String sql = "UPDATE ap.ride SET status = 'Cancelled' WHERE rideId = ? ";
+
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, String.valueOf(rideId));
+
+            statement.executeUpdate();
+
+            con.close();
+            return true;
+        }
+        catch(ClassNotFoundException e){
+
+            System.out.println("Driver Not Loaded");
+            return false;
+
+        } catch (SQLException e) {
+
+            System.out.println("Connection is not Established!" + e.getMessage());
+            return false;
+        }
+
+    }
+
+    public boolean getPassengerRides(String cnic){
+        try
+        {
+            //step1 load the driver class
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded Successfully!");
+            //step2 create  the connection object
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            System.out.println("Connection Established!");
+
+            String sql = "SELECT * FROM ap.ride WHERE passengerId = ? ";
+
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, String.valueOf(PassengerProfile.getPassengerProfile().getPassengerCnic()));
+            ResultSet rs = statement.executeQuery();
+
+            while(rs.next())
+            {
+                Ride r = new Ride();
+                r.setRideId(Integer.valueOf(rs.getString("rideId")));
+                r.setDriverID(Integer.valueOf(rs.getString("driverId")));
+                r.setPassengerId(Integer.valueOf(rs.getString("passengerId")));
+                r.setDropOff(rs.getString("dropOff"));
+                r.setPickUp(rs.getString("pickUp"));
+                r.setStatus(rs.getString("status"));
+                r.setFare(Integer.valueOf(rs.getString("fare")));
+                r.setVehicleId(Integer.valueOf(rs.getString("vehicleId")));
+
+                if( parseInt(rs.getString("passengerId")) == parseInt(cnic) ) {
+                    PassengerProfile.getPassengerProfile().addRide(r);
+                }
+
+            }
+            con.close();
+            return true;
+        }
+        catch(ClassNotFoundException e){
+
+            System.out.println("Driver Not Loaded");
+            return false;
+
+        } catch (SQLException e) {
+
+            System.out.println("Connection is not Established!" + e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean bookRide(int rideId , int passengerCnic){
+
+        System.out.println(String.valueOf(rideId));
+
+        try
+        {
+            //step1 load the driver class
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver Loaded Successfully!");
+            //step2 create  the connection object
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","tiger");
+            System.out.println("Connection Established!");
+            String sql = "UPDATE ap.ride SET status = 'Booked' , passengerId = ?  WHERE rideId = ? ";
+
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1, String.valueOf(passengerCnic));
+            statement.setString(2, String.valueOf(rideId));
+
+            statement.executeUpdate();
+
             con.close();
             return true;
         }

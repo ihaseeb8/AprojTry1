@@ -1,6 +1,5 @@
 package com.example.aproj;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,7 +21,7 @@ public class DriverProfileViewController implements Initializable {
     private Button BackButton;
 
     @FXML
-    private Button FinishRideButton;
+    private Button AcceptRideButton;
 
     @FXML
     private Button MyVehiclesButton;
@@ -34,14 +33,40 @@ public class DriverProfileViewController implements Initializable {
     private Button MyRidesButton;
 
     @FXML
+    private Button FinishRideButton;
+
+    @FXML
     private Button RegisterRideButton;
 
     @FXML
     private Text promptText;
 
+
+    @FXML
+    void FinishRideButtonPressed(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("driver-finish-ride-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        //Node node = (Node) event.getSource();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void onFinishRideButtonMouseMoved(MouseEvent event) {
+        FinishRideButton.setStyle("-fx-background-color: #F44336");
+        FinishRideButton.setTextFill(Paint.valueOf("#FFFFFF"));
+    }
+
+
+    @FXML
+    void onFinishRideButtonMouseRemoved(MouseEvent event) {
+        FinishRideButton.setStyle("-fx-background-color: #ff725e");
+        FinishRideButton.setTextFill(Paint.valueOf("#000000"));
+    }
+
     @FXML
     void RegisterRideButtonPressed(MouseEvent event) throws IOException {
-
 
         if(DriverProfile.getDriverProfile().getVehicles() == null)
         {
@@ -87,7 +112,14 @@ public class DriverProfileViewController implements Initializable {
     }
 
     @FXML
-    void FinishRideButtonPressed(MouseEvent event) {
+    void AcceptRideButtonPressed(MouseEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("driver-accept-ride-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        //Node node = (Node) event.getSource();
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
@@ -126,15 +158,15 @@ public class DriverProfileViewController implements Initializable {
     }
 
     @FXML
-    void onFinishRideButtonMouseMoved(MouseEvent event) {
-        FinishRideButton.setStyle("-fx-background-color: #F44336");
-        FinishRideButton.setTextFill(Paint.valueOf("#FFFFFF"));
+    void onAcceptRideButtonMouseMoved(MouseEvent event) {
+        AcceptRideButton.setStyle("-fx-background-color: #F44336");
+        AcceptRideButton.setTextFill(Paint.valueOf("#FFFFFF"));
     }
 
     @FXML
-    void onFinishRideButtonMouseRemoved(MouseEvent event) {
-        FinishRideButton.setStyle("-fx-background-color: #ff725e");
-        FinishRideButton.setTextFill(Paint.valueOf("#000000"));
+    void onAcceptRideButtonMouseRemoved(MouseEvent event) {
+        AcceptRideButton.setStyle("-fx-background-color: #ff725e");
+        AcceptRideButton.setTextFill(Paint.valueOf("#000000"));
     }
 
     @FXML

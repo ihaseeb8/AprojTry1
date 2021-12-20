@@ -13,19 +13,23 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PassengerRideViewController implements Initializable {
+public class PassengerAvailableRideViewController implements Initializable {
 
     @FXML
     private Button BackButton;
 
     @FXML
     private Button BookButton;
+
+    @FXML
+    private Text promptText;
 
     @FXML
     private TableColumn<Ride, Integer> CarNoCol;
@@ -40,7 +44,7 @@ public class PassengerRideViewController implements Initializable {
     private TableColumn<Ride, Double> FareCol;
 
     @FXML
-    private TableView<Ride> PassengerRideInfoTable;
+    private TableView<Ride> PassengerAvailableRideTable;
 
     @FXML
     private TableColumn<Ride, String> PickUpCol;
@@ -60,6 +64,18 @@ public class PassengerRideViewController implements Initializable {
     @FXML
     void BookButtonPressed(MouseEvent event) {
 
+
+        if(PassengerAvailableRideTable.getSelectionModel().isEmpty())
+        {
+            promptText.setText("Please Select A Ride First");
+        }
+        else {
+            Ride temp = PassengerAvailableRideTable.getSelectionModel().getSelectedItem();
+            DBConnection.getDBConnection().bookRide(temp.getRideId() , PassengerProfile.getPassengerProfile().getPassengerCnic());
+            //System.out.println(temp.vehicleId);
+            PassengerAvailableRideTable.getItems().remove(temp);
+            promptText.setText("Ride Registered Successfully !");
+        }
     }
 
     @FXML
@@ -89,22 +105,17 @@ public class PassengerRideViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-      /*  ObservableList<Ride> data = FXCollections.observableArrayList(
-                new Ride("F7", "F11", 9988,7732 , 456 ),
-                new Ride("F7", "F11", 9988,7742 , 456 ),
-                new Ride("F7", "F11", 9988,7732 , 456 ),
-                new Ride("F7", "F11", 9988,7732 , 456 ),
-                new Ride("F7", "F11", 9988,7732 , 456 ));
 
-        CarNoCol.setCellValueFactory(new PropertyValueFactory<>("CarID"));
-        DriverNameCol.setCellValueFactory(new PropertyValueFactory<>("DriverID"));
-        DropOffCol.setCellValueFactory(new PropertyValueFactory<>("Dropoff"));
+        ObservableList<Ride> data = DBConnection.getDBConnection().getAvailableRides();
+
+        CarNoCol.setCellValueFactory(new PropertyValueFactory<>("vehicleId"));
+        DriverNameCol.setCellValueFactory(new PropertyValueFactory<>("driverID"));
+        DropOffCol.setCellValueFactory(new PropertyValueFactory<>("dropOff"));
         FareCol.setCellValueFactory(new PropertyValueFactory<>("fare"));
-        PickUpCol.setCellValueFactory(new PropertyValueFactory<>("Pickup"));
-        //add your data to the table here.
-        //tbData.setItems(studentsModels);
+        PickUpCol.setCellValueFactory(new PropertyValueFactory<>("pickUp"));
 
-        PassengerRideInfoTable.setItems(data);*/
-
+        if(data != null) {
+            PassengerAvailableRideTable.setItems(data);
+        }
     }
 }

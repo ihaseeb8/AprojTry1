@@ -102,6 +102,11 @@ public class LoginViewController {
                         DBConnection.getDBConnection().getVehicles(String.valueOf(DriverProfile.getDriverProfile().getDriverCnic()));
                         DBConnection.getDBConnection().getRides(String.valueOf(DriverProfile.getDriverProfile().getDriverCnic()));
 
+                        //passenger Filling
+                        PassengerProfile.getPassengerProfile().setPassengerCnic(User.getUser().getCnic());
+                        User.getUser().setPassengerProfile(PassengerProfile.getPassengerProfile());
+                        DBConnection.getDBConnection().getPassengerRides(String.valueOf(PassengerProfile.getPassengerProfile().getPassengerCnic()));
+
                         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("profiles-view.fxml"));
                         Scene scene = new Scene(fxmlLoader.load());
                         //Node node = (Node) event.getSource();

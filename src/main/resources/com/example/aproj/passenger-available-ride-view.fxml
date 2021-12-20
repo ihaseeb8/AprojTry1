@@ -8,12 +8,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aproj.PassengerRideViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aproj.PassengerAvailableRideViewController">
    <left>
       <AnchorPane prefHeight="422.0" prefWidth="111.0" style="-fx-background-color: #BDBDBD;" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <TableView fx:id="PassengerRideInfoTable" prefHeight="419.0" prefWidth="583.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="PassengerAvailableRideTable" prefHeight="419.0" prefWidth="583.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="PickUpCol" prefWidth="117.60003817081451" text="Pick Up" />
           <TableColumn fx:id="DropOffCol" prefWidth="115.99999237060547" text="Drop Off" />
@@ -27,18 +27,19 @@
       <AnchorPane prefHeight="422.0" prefWidth="101.0" style="-fx-background-color: #BDBDBD;" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <AnchorPane prefHeight="70.0" prefWidth="796.0" style="-fx-background-color: #BDBDBD;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="88.0" prefWidth="796.0" style="-fx-background-color: #BDBDBD;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="BackButton" layoutX="243.0" layoutY="13.0" mnemonicParsing="false" onMouseEntered="#onBackButtonMouseMoved" onMouseExited="#onBackButtonMouseRemoved" onMousePressed="#BackButtonPressed" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #ff725e;" text="Back">
+            <Button fx:id="BackButton" layoutX="243.0" layoutY="30.0" mnemonicParsing="false" onMouseEntered="#onBackButtonMouseMoved" onMouseExited="#onBackButtonMouseRemoved" onMousePressed="#BackButtonPressed" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #ff725e;" text="Back">
                <font>
                   <Font name="Segoe Script" size="17.0" />
                </font>
             </Button>
-            <Button fx:id="BookButton" layoutX="448.0" layoutY="13.0" mnemonicParsing="false" onMouseEntered="#onBookButtonMouseMoved" onMouseExited="#onBookButtonMouseRemoved" onMousePressed="#BookButtonPressed" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #ff725e;" text="Book">
+            <Button fx:id="BookButton" layoutX="448.0" layoutY="30.0" mnemonicParsing="false" onMouseEntered="#onBookButtonMouseMoved" onMouseExited="#onBookButtonMouseRemoved" onMousePressed="#BookButtonPressed" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #ff725e;" text="Book">
                <font>
                   <Font name="Segoe Script" size="17.0" />
                </font>
             </Button>
+            <Text fx:id="promptText" fill="#a42e1f" layoutX="285.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="274.9367980957031" />
          </children>
       </AnchorPane>
    </bottom>

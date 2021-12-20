@@ -8,6 +8,7 @@ public class User {
     private String phoneNo;
     private String password;
     private DriverProfile driverProfile;
+    private PassengerProfile passengerProfile;
 
     private static User user = new User();
 
@@ -17,6 +18,7 @@ public class User {
         phoneNo = null;
         password = null;
         driverProfile=null;
+        passengerProfile = null;
     }
 
     public DriverProfile getDriverProfile() {
@@ -25,6 +27,14 @@ public class User {
 
     public void setDriverProfile(DriverProfile driverProfile) {
         this.driverProfile = driverProfile;
+    }
+
+    public PassengerProfile getPassengerProfile() {
+        return passengerProfile;
+    }
+
+    public void setPassengerProfile(PassengerProfile passengerProfile) {
+        this.passengerProfile = passengerProfile;
     }
 
     public static User getUser(){

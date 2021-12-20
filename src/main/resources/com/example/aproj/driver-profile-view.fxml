@@ -31,19 +31,19 @@
         </AnchorPane>
     </center>
     <left>
-        <AnchorPane prefHeight="615.0" prefWidth="221.0" style="-fx-background-color: #455A64;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="615.0" prefWidth="218.0" style="-fx-background-color: #455A64;" BorderPane.alignment="CENTER">
             <children>
                 <Button fx:id="ProfileButton" layoutX="-1.0" layoutY="204.0" mnemonicParsing="false" onMouseEntered="#onProfileButtonMouseMoved" onMouseExited="#onProfileButtonMouseRemoved" onMousePressed="#ProfileButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="My Profile">
                     <font>
                         <Font name="Segoe Script" size="17.0" />
                     </font>
                 </Button>
-                <Button fx:id="FinishRideButton" layoutX="-1.0" layoutY="326.0" mnemonicParsing="false" onMouseEntered="#onFinishRideButtonMouseMoved" onMouseExited="#onFinishRideButtonMouseRemoved" onMousePressed="#FinishRideButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="Finish A Ride">
+                <Button fx:id="AcceptRideButton" layoutX="-1.0" layoutY="326.0" mnemonicParsing="false" onMouseEntered="#onAcceptRideButtonMouseMoved" onMouseExited="#onAcceptRideButtonMouseRemoved" onMousePressed="#AcceptRideButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="Accept A Ride">
                     <font>
                         <Font name="Segoe Script" size="17.0" />
                     </font>
                 </Button>
-                <Button fx:id="MyRidesButton" layoutX="-1.0" layoutY="389.0" mnemonicParsing="false" onMouseEntered="#onMyRidesButtonMouseMoved" onMouseExited="#onMyRidesButtonMouseRemoved" onMousePressed="#MyRidesButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="My Rides">
+                <Button fx:id="MyRidesButton" layoutY="445.0" mnemonicParsing="false" onMouseEntered="#onMyRidesButtonMouseMoved" onMouseExited="#onMyRidesButtonMouseRemoved" onMousePressed="#MyRidesButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="My Rides">
                     <font>
                         <Font name="Segoe Script" size="17.0" />
                     </font>
@@ -59,12 +59,17 @@
                         <Image url="@imageedit_6_6052425586.png" />
                     </image>
                 </ImageView>
-            <Button fx:id="MyVehiclesButton" layoutX="-1.0" layoutY="451.0" mnemonicParsing="false" onMouseEntered="#onMyVehiclesButtonMouseMoved" onMouseExited="#onMyVehiclesButtonMouseRemoved" onMousePressed="#onMyVehiclesButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="My Vehilcles">
+            <Button fx:id="MyVehiclesButton" layoutX="-1.0" layoutY="505.0" mnemonicParsing="false" onMouseEntered="#onMyVehiclesButtonMouseMoved" onMouseExited="#onMyVehiclesButtonMouseRemoved" onMousePressed="#onMyVehiclesButtonPressed" prefHeight="22.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="My Vehilcles">
                <font>
                   <Font name="Segoe Script" size="17.0" />
                </font>
             </Button>
             <Button fx:id="RegisterRideButton" layoutX="-1.0" layoutY="264.0" mnemonicParsing="false" onMouseEntered="#onRegisterRideButtonMouseMoved" onMouseExited="#onRegisterRideButtonMouseRemoved" onMousePressed="#RegisterRideButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="Register A Ride">
+               <font>
+                  <Font name="Segoe Script" size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="FinishRideButton" layoutY="386.0" mnemonicParsing="false" onMouseEntered="#onFinishRideButtonMouseMoved" onMouseExited="#onFinishRideButtonMouseRemoved" onMousePressed="#FinishRideButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="Finish A Ride">
                <font>
                   <Font name="Segoe Script" size="17.0" />
                </font>

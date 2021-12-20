@@ -25,9 +25,10 @@ public class PassengerProfileViewController {
     @FXML
     private Button RideHistoryButton;
 
+
     @FXML
     void AvailableRidesButtonPressed(MouseEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("passenger-ride-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("passenger-available-ride-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         //Node node = (Node) event.getSource();
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -57,6 +58,7 @@ public class PassengerProfileViewController {
 
     @FXML
     void RideHistoryButtonPressed(MouseEvent event) {
+
 
     }
 
