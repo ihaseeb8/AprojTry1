@@ -13,7 +13,7 @@
       <AnchorPane prefHeight="422.0" prefWidth="111.0" style="-fx-background-color: #BDBDBD;" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <TableView fx:id="PassengerAvailableRideTable" prefHeight="419.0" prefWidth="583.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="PassengerAvailableRideTable" prefHeight="419.0" prefWidth="583.0" style="-fx-background-color: #ff725e;" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="PickUpCol" prefWidth="117.60003817081451" text="Pick Up" />
           <TableColumn fx:id="DropOffCol" prefWidth="115.99999237060547" text="Drop Off" />

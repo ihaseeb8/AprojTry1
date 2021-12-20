@@ -39,7 +39,7 @@
                         <Font name="Calibri" size="30.0" />
                     </font>
                 </Text>
-                <TextField fx:id="NameField" editable="false" layoutX="108.0" layoutY="116.0" prefHeight="34.0" prefWidth="230.0" promptText="e.g. Ali Ahmad" style="-fx-background-color: #FF5252; -fx-background-radius: 50;" text="Zainab">
+                <TextField fx:id="NameField" editable="false" layoutX="108.0" layoutY="116.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #FF5252; -fx-background-radius: 50;">
                     <font>
                         <Font name="Courier New" size="16.0" />
                     </font></TextField>
@@ -53,7 +53,7 @@
                         <Font name="Calibri Light" size="14.0" />
                     </font>
                 </Text>
-                <TextField fx:id="EmailField" layoutX="108.0" layoutY="184.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #FF5252; -fx-background-radius: 50;" text="zainoob@gmail.com">
+                <TextField fx:id="EmailField" editable="false" layoutX="108.0" layoutY="184.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #FF5252; -fx-background-radius: 50;">
                     <font>
                         <Font name="Courier New" size="16.0" />
                     </font>
@@ -68,12 +68,12 @@
                         <Font name="Calibri Light" size="14.0" />
                     </font>
                 </Text>
-                <TextField fx:id="CnicField" layoutX="108.0" layoutY="254.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #FF5252; -fx-background-radius: 50;" text="123456789">
+                <TextField fx:id="CnicField" editable="false" layoutX="108.0" layoutY="254.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #FF5252; -fx-background-radius: 50;">
                     <font>
                         <Font name="Courier New" size="16.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="PhoneNoField" layoutX="108.0" layoutY="321.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #FF5252; -fx-background-radius: 50;" text="030010010010">
+                <TextField fx:id="PhoneNoField" editable="false" layoutX="108.0" layoutY="321.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #FF5252; -fx-background-radius: 50;">
                     <font>
                         <Font name="Courier New" size="16.0" />
                     </font>
@@ -83,7 +83,7 @@
                         <Font name="Calibri Light" size="14.0" />
                     </font>
                 </Text>
-            <TextField fx:id="RatingField" layoutX="108.0" layoutY="383.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #FF5252; -fx-background-radius: 50;" text="8.7/10">
+            <TextField fx:id="RatingField" editable="false" layoutX="108.0" layoutY="383.0" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #FF5252; -fx-background-radius: 50;" text="8.7/10">
                <font>
                   <Font name="Courier New" size="16.0" />
                </font>

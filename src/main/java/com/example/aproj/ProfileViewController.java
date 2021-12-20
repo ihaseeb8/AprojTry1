@@ -31,6 +31,7 @@ public class ProfileViewController implements Initializable {
 
             DriverProfile.getDriverProfile().deleteVehicles();
             DriverProfile.getDriverProfile().deleteRides();
+            PassengerProfile.getPassengerProfile().deleteRides();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

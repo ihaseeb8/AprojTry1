@@ -37,7 +37,7 @@
                   <Font name="Segoe Script" size="17.0" />
                </font>
             </Button>
-            <Button fx:id="RideHistoryButton" layoutX="-1.0" layoutY="389.0" mnemonicParsing="false" onMouseEntered="#onRideHistoryButtonMouseMoved" onMouseExited="#onRideHistoryButtonMouseRemoved" onMousePressed="#RideHistoryButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="Rides History">
+            <Button fx:id="RideHistoryButton" layoutX="-1.0" layoutY="451.0" mnemonicParsing="false" onMouseEntered="#onRideHistoryButtonMouseMoved" onMouseExited="#onRideHistoryButtonMouseRemoved" onMousePressed="#RideHistoryButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="My Rides">
                <font>
                   <Font name="Segoe Script" size="17.0" />
                </font>
@@ -53,6 +53,11 @@
                   <Image url="@imageedit_6_6052425586.png" />
                </image>
             </ImageView>
+            <Button fx:id="CancelRideButton" layoutX="-1.0" layoutY="389.0" mnemonicParsing="false" onMouseEntered="#onCancelRideButtonMouseMoved" onMouseExited="#onCancelRideButtonMouseRemoved" onMousePressed="#CancelRideButtonPressed" prefHeight="43.0" prefWidth="226.0" style="-fx-background-color: #ff725e;" text="Cancel A Ride">
+               <font>
+                  <Font name="Segoe Script" size="17.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </left>

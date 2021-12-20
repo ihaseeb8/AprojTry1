@@ -25,6 +25,30 @@ public class PassengerProfileViewController {
     @FXML
     private Button RideHistoryButton;
 
+    @FXML
+    private Button CancelRideButton;
+
+    @FXML
+    void onCancelRideButtonMouseMoved(MouseEvent event) {
+        CancelRideButton.setStyle("-fx-background-color: #F44336");
+        CancelRideButton.setTextFill(Paint.valueOf("#FFFFFF"));
+    }
+
+    @FXML
+    void onCancelRideButtonMouseRemoved(MouseEvent event) {
+        CancelRideButton.setStyle("-fx-background-color: #ff725e");
+        CancelRideButton.setTextFill(Paint.valueOf("#000000"));
+    }
+
+    @FXML
+    void CancelRideButtonPressed(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("passenger-cancel-ride-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        //Node node = (Node) event.getSource();
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     void AvailableRidesButtonPressed(MouseEvent event) throws IOException {
@@ -57,9 +81,13 @@ public class PassengerProfileViewController {
     }
 
     @FXML
-    void RideHistoryButtonPressed(MouseEvent event) {
-
-
+    void RideHistoryButtonPressed(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("passenger-my-rides-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        //Node node = (Node) event.getSource();
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

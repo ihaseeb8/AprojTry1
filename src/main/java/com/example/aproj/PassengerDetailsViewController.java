@@ -3,6 +3,7 @@ package com.example.aproj;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,8 +13,10 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class PassengerDetailsViewController {
+public class PassengerDetailsViewController implements Initializable {
 
     @FXML
     private Button BackButton;
@@ -58,4 +61,14 @@ public class PassengerDetailsViewController {
         BackButton.setTextFill(Paint.valueOf("#000000"));
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        CnicField.setText(String.valueOf(User.getUser().getCnic()));
+        EmailField.setText(User.getUser().getEmail());
+        NameField.setText(User.getUser().getName());
+        PhoneNoField.setText(User.getUser().getPhoneNo());
+        RatingField.setText("9/10");
+
+    }
 }

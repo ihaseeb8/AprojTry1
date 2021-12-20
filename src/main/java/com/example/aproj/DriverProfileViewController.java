@@ -68,9 +68,9 @@ public class DriverProfileViewController implements Initializable {
     @FXML
     void RegisterRideButtonPressed(MouseEvent event) throws IOException {
 
-        if(DriverProfile.getDriverProfile().getVehicles() == null)
+        if(DriverProfile.getDriverProfile().getVehicles().size() == 0)
         {
-           System.out.println("haha");
+           promptText.setText("Register A Vehicle First");
         }
         else
         {

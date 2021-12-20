@@ -22,7 +22,7 @@
                   <Image url="@taxii.png" />
                </image>
             </ImageView>
-            <Text fill="#ff2828" layoutX="178.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="390.4945373535156">
+            <Text fx:id="promptText" fill="#ff2828" layoutX="108.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="390.4945373535156">
                <font>
                   <Font size="20.0" />
                </font>
