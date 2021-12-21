@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aproj.Controllers.DriverVehiclesViewController">
+    <left>
+        <AnchorPane prefHeight="422.0" prefWidth="111.0" style="-fx-background-color: #BDBDBD;" BorderPane.alignment="CENTER" />
+    </left>
+    <center>
+        <TableView fx:id="DriverVehiclesInfoTable" prefHeight="174.0" prefWidth="573.0" style="-fx-background-color: #FF5252;" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="VehicleIdCol" prefWidth="137.6000778079033" text="Vehicle Id" />
+                <TableColumn fx:id="NameCol" prefWidth="168.0000457763672" text="Name" />
+                <TableColumn fx:id="ModelCol" prefWidth="156.80001831054688" text="Model" />
+                <TableColumn fx:id="MakeCol" prefWidth="173.5999755859375" text="Make" />
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <AnchorPane prefHeight="422.0" prefWidth="101.0" style="-fx-background-color: #BDBDBD;" BorderPane.alignment="CENTER" />
+    </right>
+    <bottom>
+        <AnchorPane prefHeight="306.0" prefWidth="796.0" style="-fx-background-color: #BDBDBD;" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="BackButton" layoutX="179.0" layoutY="230.0" mnemonicParsing="false" onMouseEntered="#onBackButtonMouseMoved" onMouseExited="#onBackButtonMouseRemoved" onMousePressed="#BackButtonPressed" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #ff725e;" text="Back">
+                    <font>
+                        <Font name="Segoe Script" size="17.0" />
+                    </font>
+                </Button>
+                <Button fx:id="RegisterButton" layoutX="560.0" layoutY="230.0" mnemonicParsing="false" onMouseEntered="#onRegisterButtonMouseMoved" onMouseExited="#onRegisterButtonMouseRemoved" onMousePressed="#RegisterButtonPressed" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #ff725e;" text="Register">
+                    <font>
+                        <Font name="Segoe Script" size="17.0" />
+                    </font>
+                </Button>
+            <Text fill="#ff5252" layoutX="262.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTER NEW VEHICLE" wrappingWidth="326.9365692138672">
+               <font>
+                  <Font name="Calibri" size="30.0" />
+               </font>
+            </Text>
+            <TextField fx:id="VehicleIdField" layoutX="120.0" layoutY="78.0" prefHeight="34.0" prefWidth="230.0" promptText="e.g 4567" style="-fx-background-color: #FF5252; -fx-background-radius: 50;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text layoutX="130.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Id" wrappingWidth="63.82928466796875">
+               <font>
+                  <Font name="Calibri Light" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="NameField" layoutX="501.0" layoutY="78.0" prefHeight="34.0" prefWidth="230.0" promptText="e.g Civic" style="-fx-background-color: #FF5252; -fx-background-radius: 50;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text layoutX="513.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="63.82928466796875">
+               <font>
+                  <Font name="Calibri Light" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="ModelField" layoutX="120.0" layoutY="153.0" prefHeight="34.0" prefWidth="230.0" promptText="e.g 2014" style="-fx-background-color: #FF5252; -fx-background-radius: 50;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="MakeField" layoutX="501.0" layoutY="153.0" prefHeight="34.0" prefWidth="230.0" promptText="e.g Honda" style="-fx-background-color: #FF5252; -fx-background-radius: 50;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text layoutX="130.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Model" wrappingWidth="63.82928466796875">
+               <font>
+                  <Font name="Calibri Light" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="513.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make" wrappingWidth="63.82928466796875">
+               <font>
+                  <Font name="Calibri Light" size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="registerPrompt" fill="#e70808" fontSmoothingType="LCD" layoutX="308.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="225.33665466308594" />
+            </children>
+        </AnchorPane>
+    </bottom>
+    <top>
+        <AnchorPane prefHeight="81.0" prefWidth="796.0" style="-fx-background-color: #607D8B;" BorderPane.alignment="CENTER">
+            <children>
+                <Text fill="#ff5252" layoutX="316.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="YOUR VEHICLES" wrappingWidth="218.13658142089844">
+                    <font>
+                        <Font name="Calibri" size="30.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </top>
+</BorderPane>

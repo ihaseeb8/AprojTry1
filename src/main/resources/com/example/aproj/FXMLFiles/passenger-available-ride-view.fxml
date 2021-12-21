@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aproj.Controllers.PassengerAvailableRideViewController">
+   <left>
+      <AnchorPane prefHeight="422.0" prefWidth="111.0" style="-fx-background-color: #BDBDBD;" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <TableView fx:id="PassengerAvailableRideTable" prefHeight="419.0" prefWidth="583.0" style="-fx-background-color: #ff725e;" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="PickUpCol" prefWidth="136.79996794462204" text="Pick Up" />
+          <TableColumn fx:id="DropOffCol" prefWidth="124.79991149902344" text="Drop Off" />
+            <TableColumn fx:id="DriverNameCol" prefWidth="125.60003662109375" text="Driver Id" />
+            <TableColumn fx:id="CarNoCol" prefWidth="123.99990844726562" text="Car Id" />
+            <TableColumn fx:id="FareCol" prefWidth="123.20001220703125" text="Fare" />
+        </columns>
+      </TableView>
+   </center>
+   <right>
+      <AnchorPane prefHeight="422.0" prefWidth="101.0" style="-fx-background-color: #BDBDBD;" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="88.0" prefWidth="796.0" style="-fx-background-color: #BDBDBD;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="BackButton" layoutX="243.0" layoutY="30.0" mnemonicParsing="false" onMouseEntered="#onBackButtonMouseMoved" onMouseExited="#onBackButtonMouseRemoved" onMousePressed="#BackButtonPressed" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #ff725e;" text="Back">
+               <font>
+                  <Font name="Segoe Script" size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="BookButton" layoutX="504.0" layoutY="30.0" mnemonicParsing="false" onMouseEntered="#onBookButtonMouseMoved" onMouseExited="#onBookButtonMouseRemoved" onMousePressed="#BookButtonPressed" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #ff725e;" text="Book">
+               <font>
+                  <Font name="Segoe Script" size="17.0" />
+               </font>
+            </Button>
+            <Text fx:id="promptText" fill="#a42e1f" layoutX="285.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="274.9367980957031" />
+         </children>
+      </AnchorPane>
+   </bottom>
+   <top>
+      <AnchorPane prefHeight="81.0" prefWidth="796.0" style="-fx-background-color: #607D8B;" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="#ff5252" layoutX="316.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AVAILABLE RIDES" wrappingWidth="218.13658142089844">
+               <font>
+                  <Font name="Calibri" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

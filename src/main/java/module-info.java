@@ -17,5 +17,11 @@ module com.example.aproj {
     opens com.example.aproj to org.hibernate.orm.core,javafx.fxml ;
 
     exports com.example.aproj;
+    exports com.example.aproj.Controllers;
+    opens com.example.aproj.Controllers to javafx.fxml, org.hibernate.orm.core;
+    exports com.example.aproj.DBHandlers;
+    opens com.example.aproj.DBHandlers to javafx.fxml, org.hibernate.orm.core;
+    exports com.example.aproj.Classes;
+    opens com.example.aproj.Classes to javafx.fxml, org.hibernate.orm.core;
 
 }
